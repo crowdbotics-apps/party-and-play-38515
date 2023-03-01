@@ -1,99 +1,155 @@
-import React from "react";
-import { Text, StyleSheet, View, Image, Pressable } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Text, StyleSheet, View, Image, ScrollView } from "react-native";
 
-const UploadMediaScreen = (params) => {
+const NotificationsScreen = (params) => {
+  const [notifications, setNotifications] = useState([]);
+  useEffect(() => {
+    setNotifications([
+      {
+        id: 1,
+        type: "Booking Successful",
+        details: "You have booked Kreamy Corner",
+        time: "5 min ago",
+        read: false
+      },
+      {
+        id: 2,
+        type: "Booking Successful",
+        details: "You have booked Kreamy Corner",
+        time: "5 min ago",
+        read: false
+      },
+      {
+        id: 3,
+        type: "Event Reminder",
+        details: "Your next event will be held after 2 hours.",
+        time: "5 min ago",
+        read: true
+      },
+      {
+        id: 4,
+        type: "Event Reminder",
+        details: "Your next event will be held after 2 hours.",
+        time: "5 min ago",
+        read: true
+      },
+      {
+        id: 5,
+        type: "Event Reminder",
+        details: "Your next event will be held after 2 hours.",
+        time: "5 min ago",
+        read: true
+      },
+      {
+        id: 6,
+        type: "Event Reminder",
+        details: "Your next event will be held after 2 hours.",
+        time: "5 min ago",
+        read: true
+      },
+      {
+        id: 7,
+        type: "Event Reminder",
+        details: "Your next event will be held after 2 hours.",
+        time: "5 min ago",
+        read: true
+      }
+    ]);
+  }, []);
   return (
     <View style={styles.container}>
-      <View style={styles.menu}>
-        <View style={styles.menuItem}>
-          <Text style={styles.menuItemText}>Take photo or video</Text>
-          <Image source={require("./assets/cameraIcon.png")} />
-        </View>
-        <View style={styles.menuItem}>
-          <Text style={styles.menuItemText}>Photo Library</Text>
-          <Image source={require("./assets/libraryIcon.png")} />
-        </View>
-        <View style={styles.menuItem}>
-          <Text style={styles.menuItemText}>Browse</Text>
-          <Image source={require("./assets/menuIcon.png")} />
+      <View style={styles.header}>
+        <View style={styles.headerTextContainer}>
+          <Text style={styles.headerText}>Select all</Text>
+          <Text style={styles.headerText}>Mark all</Text>
         </View>
       </View>
-      <Button buttonText="Cancel" outline={true} />
+      <View style={styles.notificationsContainer}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {notifications.map((notification, index) => (
+            <NotificationTile notification={notification} key={index} />
+          ))}
+        </ScrollView>
+      </View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    padding: 20,
-    justifyContent: "flex-end"
-  },
-  menuItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingHorizontal: 20,
-    paddingVertical: 15,
-    justifyContent: "space-between",
-    borderBottomWidth: 1,
-    borderColor: "#ccc"
-  },
-  menuItemText: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#000",
-    textAlign: "left"
-  }
-});
-export default UploadMediaScreen;
-
-const Button = (params) => {
-  const btnStyle = {
-    backgroundColor: params.outline ? "#fff" : "#000",
-    borderColor: params.outline ? "#000" : "#fff",
-    borderWidth: 1
-  };
-  const btnText = {
-    color: params.outline ? "#000" : "#fff"
+const NotificationTile = ({ notification }) => {
+  const textColor = {
+    color: notification.read ? "#8E8E8E" : "#000"
   };
   return (
-    <View style={buttonStyles.btnContainer}>
-      <Pressable style={[buttonStyles.btn, btnStyle]} onPress={params.onPress}>
-        <Text style={[buttonStyles.btnText, btnText]}>{params.buttonText}</Text>
-        <View style={styles.childrenContainer}>{params.children}</View>
-      </Pressable>
+    <View style={notificationTileStyles.container}>
+      <View style={notificationTileStyles.notificationTextContainer}>
+        <Text style={[notificationTileStyles.mainText, textColor]}>
+          {notification.type}
+        </Text>
+        <Text style={textColor}>{notification.details}</Text>
+      </View>
+      <View style={notificationTileStyles.timeContainer}>
+        <Text style={textColor}>{notification.time}</Text>
+        <View>
+          {!notification.read
+            ? (
+            <Image source={require("./assets/readIcon.png")} />
+              )
+            : null}
+        </View>
+      </View>
     </View>
   );
 };
 
-const buttonStyles = StyleSheet.create({
-  btnContainer: {
-    paddingTop: 10,
-    paddingHorizontal: 20,
-    justifyContent: "center",
-    marginTop: 20
+const notificationTileStyles = StyleSheet.create({
+  container: {
+    borderBottomColor: "#ccc",
+    borderBottomWidth: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    height: 100,
+    alignItems: "center"
   },
-  btn: {
-    backgroundColor: "black",
-    height: 50,
-    width: "100%",
-    padding: 10,
-    paddingHorizontal: 25,
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
-    shadowColor: "rgba(0, 0, 0, 0.2)",
-    elevation: 10,
-    flexDirection: "row"
+  notificationTextContainer: {
+    flexDirection: "column",
+    height: "80%",
+    justifyContent: "space-around" // alignItems: "center"
   },
-  btnText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "bold"
+  mainText: {
+    fontSize: 18,
+    marginVertical: 10
   },
-  childrenContainer: {
-    justifyContent: "center",
+  timeContainer: {
+    height: "80%",
+    justifyContent: "space-around",
     alignItems: "center"
   }
 });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff"
+  },
+  header: {
+    flex: 1,
+    paddingVertical: 10,
+    justifyContent: "space-around",
+    borderBottomWidth: 1,
+    borderBottomColor: "#ccc"
+  },
+  headerTextContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 20
+  },
+  headerText: {
+    fontSize: 18,
+    fontWeight: "bold"
+  },
+  notificationsContainer: {
+    flex: 12,
+    backgroundColor: "#fff",
+    paddingHorizontal: 20
+  }
+});
+export default NotificationsScreen;
