@@ -1,343 +1,251 @@
-import React, { useState, useEffect } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Pressable,
-  TextInput,
-  Image,
-  ScrollView
-} from "react-native";
+import React from "react";
+import { Text, StyleSheet, View, ScrollView, Image, TextInput, TouchableHighlight } from "react-native";
 
-const Feedback = () => {
-  const [message, setMessage] = useState("");
-  const [reviews, setReviews] = useState([]);
-  const [expanded, setExpanded] = useState(null);
-  useEffect(() => {
-    setReviews([
-      {
-        id: 1,
-        username: "Username",
-        email: "username@email.com",
-        image: require("./assets/userImage.png"),
-        subject: "Molestie vestibulum nulla.",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium, commodo lacus, amet nulla faucibus vulputate erat vestibulum. Aliquet consequat nunc sit ullamcorper vel egestas nunc sagittis lectus. Sed ipsum vel in morbi non semper adipiscing nibh nam. Integer sem."
-      },
-      {
-        id: 2,
-        username: "Username",
-        email: "username@email.com",
-        image: require("./assets/userImage.png"),
-        subject: "Molestie vestibulum nulla.",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium, commodo lacus, amet nulla faucibus vulputate erat vestibulum. Aliquet consequat nunc sit ullamcorper vel egestas nunc sagittis lectus. Sed ipsum vel in morbi non semper adipiscing nibh nam. Integer sem."
-      },
-      {
-        id: 3,
-        username: "Username",
-        email: "username@email.com",
-        image: require("./assets/userImage.png"),
-        subject: "Molestie vestibulum nulla.",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium, commodo lacus, amet nulla faucibus vulputate erat vestibulum. Aliquet consequat nunc sit ullamcorper vel egestas nunc sagittis lectus. Sed ipsum vel in morbi non semper adipiscing nibh nam. Integer sem."
-      },
-      {
-        id: 4,
-        username: "Username",
-        email: "username@email.com",
-        image: require("./assets/userImage.png"),
-        subject: "Molestie vestibulum nulla.",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium, commodo lacus, amet nulla faucibus vulputate erat vestibulum. Aliquet consequat nunc sit ullamcorper vel egestas nunc sagittis lectus. Sed ipsum vel in morbi non semper adipiscing nibh nam. Integer sem."
-      }
-    ]);
-  }, []);
-  useEffect(() => {
-    setExpanded(reviews[3]);
-  }, [reviews]);
-  const handleExpand = item => {
-    if (expanded === item) {
-      setExpanded(null);
-    } else {
-      setExpanded(item);
-    }
-  };
+const EventsAdvancedScreen = () => {
   return (
-    <View style={styles.container}>
-      <ScrollView>
-        <TabView
-          tabTitles={["All Users"]}
-          selected={0}
-          style={styles.tabView}
-        />
-        <Text style={styles.title}>Feedback</Text>
-        <View style={styles.feedbackContainer}>
-          {reviews.map((review, index) => (
-            <Review
-              key={index}
-              item={review}
-              expanded={review === expanded}
-              onPress={x => {
-                handleExpand(x);
-              }}
-            />
-          ))}
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Image source={require("./assets/back.png")} style={styles.back} />
+          <Text style={styles.heading}>Events</Text>
+          <View style={styles.IconContainer}>
+            <Image source={require("./assets/star.png")} style={styles.star} />
+            <Image source={require("./assets/settings.png")} style={styles.settings} />
+          </View>
         </View>
-      </ScrollView>
-      <View style={styles.footer}>
-        <View style={styles.camera}>
-          <Image
-            source={require("./assets/cameraIcon.png")}
-            style={styles.cameraIcon}
-          />
+        <View style={styles.emailContainer}>
+          <Text style={styles.mr10}>Search</Text>
+          <Input placeholder="Enter" />
         </View>
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="Type a message"
-            onChangeText={text => setMessage(text)}
-            value={message}
-            autoCorrect={false}
-            autoCapitalize="none"
-            autoFocus={false}
-          />
-          <Image
-            source={require("./assets/emojiIcon.png")}
-            style={styles.smileyIcon}
-          />
-          <Image
-            source={require("./assets/voiceIcon.png")}
-            style={styles.voiceIcon}
-          />
-        </View>
-        <View style={styles.send}>
-          <Image
-            source={require("./assets/sendIcon.png")}
-            style={styles.sendIcon}
-          />
+        <View style={styles.mainContainer}>
+          <Text style={styles.subHeading}>List of events</Text>
+
+          <View style={styles.cardWrapper}>
+            <View style={styles.walletCard}>
+              <View style={styles.walletInner}>
+                <View style={styles.imgContainer}>
+                  <Image
+                    source={require(// @ts-ignore
+                      "./assets/edit.png")}
+                    style={styles.image}
+                  />
+                </View>
+                <View style={styles.walletCarder}>
+                  <Text style={styles.eventName}>Title of event</Text>
+                  <Text style={styles.eventType}>06.12.2022</Text>
+                  <Text style={styles.attending}>12:45 PM</Text>
+                </View>
+              </View>
+              <View style={styles.leftSection}>
+                <Text style={styles.date}>+21</Text>
+                <Text style={styles.time}>Age group</Text>
+              </View>
+            </View>
+            <View style={styles.descriptionContainer}>
+              <Text style={styles.descriptionText}>Description</Text>
+              <Text style={styles.description}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa faucibus nisi egestas
+                quis etiam nec feugiat. Scelerisque pellentesque at in accumsan cras tristique at id. At
+                nullam lectus sapien nulla. At egestas cursus elit, tortor mattis gravida ornare proin
+                ipsum. Duis purus turpis libero tristique dignissim.
+              </Text>
+            </View>
+          </View>
+          <View style={styles.cardWrapper}>
+            <View style={styles.walletCard}>
+              <View style={styles.walletInner}>
+                <View style={styles.imgContainer}>
+                  <Image source={require("./assets/edit.png")} style={styles.image} />
+                </View>
+                <View style={styles.walletCarder}>
+                  <Text style={styles.eventName}>Title of event</Text>
+                  <Text style={styles.eventType}>06.12.2022</Text>
+                  <Text style={styles.attending}>12:45 PM</Text>
+                </View>
+              </View>
+              <View style={styles.leftSection}>
+                <Text style={styles.date}>14-24</Text>
+                <Text style={styles.time}>Age group</Text>
+              </View>
+            </View>
+            <View style={styles.descriptionContainer}>
+              <Text style={styles.descriptionText}>Description</Text>
+              <Text style={styles.description}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa faucibus nisi egestas
+                quis etiam nec feugiat. Scelerisque pellentesque at in accumsan cras tristique at id. At
+                nullam lectus sapien nulla. At egestas cursus elit, tortor mattis gravida ornare proin
+                ipsum. Duis purus turpis libero tristique dignissim.
+              </Text>
+            </View>
+          </View>
+          <Button>Confirm</Button>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
-
-const Review = ({ item, expanded, onPress }) => {
-  return (
-    <Pressable style={reviewStyles.container} onPress={() => onPress(item)}>
-      <View style={reviewStyles.header}>
-        <Image source={item.image} style={reviewStyles.image} />
-        <View style={reviewStyles.info}>
-          <Text style={reviewStyles.username}>{item.username}</Text>
-          <Text style={reviewStyles.email}>{item.email}</Text>
-        </View>
-        <Image
-          source={require("./assets/menuIcon.png")}
-          style={reviewStyles.menuIcon}
-        />
-      </View>
-      {expanded
-        ? (
-        <View style={reviewStyles.body}>
-          <Text style={reviewStyles.detailsText}>
-            <Text style={reviewStyles.green}>Email: {"\t"}</Text>
-            {"\t"}
-            {item.email}
-          </Text>
-          <Text style={reviewStyles.detailsText}>
-            <Text style={reviewStyles.green}>Subject: </Text>
-            {"\t"}
-            {item.subject}
-          </Text>
-          <Text style={reviewStyles.description}>{item.description}</Text>
-          <Pressable style={reviewStyles.btn}>
-            <Text style={reviewStyles.btnText}>Reply</Text>
-          </Pressable>
-        </View>
-          )
-        : null}
-    </Pressable>
-  );
-};
-
-const reviewStyles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    backgroundColor: "#f1f1f1",
-    borderRadius: 10,
-    marginHorizontal: 20,
-    marginBottom: 10
-  },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between"
-  },
-  image: {
-    width: 50,
-    height: 50,
-    borderRadius: 25
-  },
-  menuIcon: {
-    width: 20,
-    height: 20
-  },
-  username: {
-    fontSize: 14
-  },
-  email: {
-    fontSize: 12
-  },
-  info: {
-    flexDirection: "column",
-    flex: 1,
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    marginHorizontal: 10,
-    height: 40
-  },
-  body: {
-    marginTop: 10,
-    paddingTop: 10,
-    borderTopWidth: 1,
-    borderTopColor: "#ccc"
-  },
-  detailsText: {
-    marginBottom: 5
-  },
-  green: {
-    color: "#12D790"
-  },
-  description: {
-    fontSize: 12,
-    marginTop: 5,
-    textAlign: "justify"
-  },
-  btn: {
-    backgroundColor: "#000",
-    width: 60,
-    height: 30,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 10,
-    marginVertical: 5,
-    alignSelf: "flex-end"
-  },
-  btnText: {
-    color: "#fff",
-    fontSize: 12
-  }
-});
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    paddingHorizontal: 10
   },
-  tabView: {
-    width: 150,
-    marginLeft: 20,
-    marginVertical: 10
+  mainContainer: { width: "100%" },
+  subHeading: { fontSize: 16, fontWeight: "bold", marginLeft: 30, marginVertical: 20 },
+  walletCard: {
+    backgroundColor: "#fff",
+    padding: 10,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: 10
   },
-  title: {
-    marginLeft: 20,
-    marginBottom: 10,
-    marginTop: 20
+  cardWrapper: {
+    backgroundColor: "#fff",
+    elevation: 15,
+    shadowColor: "#ccc9c9",
+    marginBottom: 20,
+    paddingBottom: 15,
+    borderRadius: 8
   },
-  footer: {
+  walletInner: {
+    display: "flex",
+    flexDirection: "row"
+  },
+  walletCarder: {
+    alignSelf: "center",
+    display: "flex",
+    flexDirection: "column"
+  },
+  eventName: {
+    color: "#000",
+    fontSize: 14,
+    marginLeft: 10,
+    width: 115
+  },
+  eventType: {
+    color: "#000",
+    fontSize: 12,
+    marginLeft: 10,
+    width: 115,
+    marginVertical: 5
+  },
+  date: { fontSize: 38, color: "#000" },
+  time: { fontSize: 12, color: "#000", marginTop: -5 },
+  attending: { color: "#dadada", fontSize: 14, marginLeft: 10, width: 115 },
+  imgContainer: {
+    height: 80,
+    width: 80,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#dadada",
+    borderRadius: 10
+  },
+  image: { resizeMode: "contain" },
+  leftSection: { justifyContent: "center", alignItems: "center" },
+  header: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: 10,
-    margin: 10
+    marginHorizontal: 30,
+    marginTop: 10,
+    marginBottom: 40
   },
-  inputContainer: {
-    width: "80%"
+  back: { width: 11.25, height: 20, resizeMode: "contain", marginLeft: -20 },
+  heading: { fontSize: 16, color: "#000", marginLeft: 20 },
+  star: { width: 20, height: 20, resizeMode: "contain" },
+  settings: { width: 20, height: 19.4, resizeMode: "contain" },
+  IconContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: 55,
+    marginRight: -20
   },
-  input: {
-    paddingLeft: 15,
-    borderRadius: 10,
-    backgroundColor: "#F1F1F1",
-    height: 45
+  emailContainer: {
+    marginBottom: 10
   },
-  smileyIcon: {
-    position: "absolute",
-    right: 40,
-    top: 10,
-    opacity: 0.5
+  mr10: {
+    marginLeft: 25,
+    marginBottom: 10
   },
-  voiceIcon: {
-    top: 12,
-    right: 15,
-    position: "absolute",
-    opacity: 0.5
-  }
+  descriptionContainer: { paddingHorizontal: 20 },
+  descriptionText: { marginVertical: 10, marginHorizontal: 20 },
+  description: { fontSize: 12, textAlign: "justify" }
 });
 
-export default Feedback;
-
-const TabView = ({
-  tabTitles,
-  selected,
-  onPress,
-  tabColor,
-  backgroundColor,
-  style
-}) => {
-  const tabColorStyle = {
-    backgroundColor: tabColor || "#fff"
-  };
-  const backgroundColorStyle = {
-    backgroundColor: backgroundColor || "#F1F1F1"
-  };
-  const propStyle = style || {};
+const Input = (props) => {
   return (
-    <View
-      style={[tabViewStyles.paletteContainer, backgroundColorStyle, propStyle]}>
-      {tabTitles.map((title, index) => (
-        <Pressable
-          onPress={() => (onPress ? onPress(index) : null)}
-          style={
-            index === selected
-              ? [tabViewStyles.selected, tabColorStyle]
-              : [tabViewStyles.unSelected, backgroundColorStyle]
-          }
-          key={index}>
-          <Text>{title}</Text>
-        </Pressable>
-      ))}
+    <View>
+      <TextInput
+        style={textStyles.input}
+        placeholder={props.placeholder}
+        value={props.value}
+        onChangeText={(num) => props.setValue(num)}
+        placeholderTextColor="#000"
+        editable={props.editable !== false}
+      />
+      {props.errorText ? <Text style={textStyles.error}>{props.errorText}</Text> : null}
     </View>
   );
 };
 
-const tabViewStyles = StyleSheet.create({
-  paletteContainer: {
-    width: "80%",
-    height: 48,
-    backgroundColor: "#E4E4E4",
-    flexDirection: "row",
-    alignItems: "center",
-    borderRadius: 10,
-    padding: 6,
-    marginVertical: 10
-  },
-  selected: {
-    borderRadius: 10,
-    flex: 1,
+const textStyles = StyleSheet.create({
+  input: {
     backgroundColor: "#fff",
-    height: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-    shadowColor: "gray",
-    elevation: 10
+    height: 53,
+    borderColor: "#C4C4C4",
+    color: "#000",
+    borderRadius: 10,
+    fontSize: 14,
+    borderWidth: 1,
+    paddingHorizontal: 10,
+    marginHorizontal: 5
   },
-  unSelected: {
-    flex: 1,
-    height: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#E4E4E4",
-    borderRadius: 10
+  error: {
+    fontSize: 13,
+    color: "#FA060D",
+    paddingTop: 8
   }
 });
+
+const Button = (props) => {
+  return (
+    <TouchableHighlight onPress={props.onPress} underlayColor="#DDDDDD">
+      <View
+        style={[
+          btnStyles.button,
+          {
+            backgroundColor: props.backgroundColor ? props.backgroundColor : "#000000",
+            height: props.height ? props.height : 49,
+            borderWidth: props.borderWidth ? props.borderWidth : 0,
+            borderColor: props.borderColor ? props.borderColor : "#000000"
+          }
+        ]}
+      >
+        <Text style={[btnStyles.text, { color: props.color ? props.color : "#ffffff" }]}>
+          {props.children}
+        </Text>
+      </View>
+    </TouchableHighlight>
+  );
+};
+
+const btnStyles = StyleSheet.create({
+  button: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
+    marginHorizontal: 20,
+    marginVertical: 20
+  },
+  text: {
+    fontWeight: "bold",
+    fontSize: 15
+  }
+});
+
+export default EventsAdvancedScreen;
