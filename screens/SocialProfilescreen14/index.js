@@ -1,19 +1,12 @@
 import React from "react";
-import {
-  Text,
-  StyleSheet,
-  View,
-  Image,
-  ScrollView,
-  TouchableHighlight
-} from "react-native";
+import { Text, StyleSheet, View, Image, ScrollView, TouchableHighlight } from "react-native";
 
 const SocialProfile = () => {
   const pressed = () => {
     console.log("pressed");
   };
-  return (
-    <ScrollView>
+
+  return <ScrollView>
       <View style={styles.container}>
         <View style={styles.head}>
           <View style={styles.headerContainer}>
@@ -75,8 +68,7 @@ const SocialProfile = () => {
           </View>
         </View>
       </View>
-    </ScrollView>
-  );
+    </ScrollView>;
 };
 
 const styles = StyleSheet.create({
@@ -143,7 +135,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#F1F1F1"
   },
-
   images: {
     width: "100%",
     flexDirection: "row",
@@ -199,25 +190,16 @@ const styles = StyleSheet.create({
   },
   bgcYellow: {
     backgroundColor: "#FCF1D6"
+  },
+  LVVUFVnK: {
+    backgroundColor: props.backgroundColor
   }
 });
 
-const Post = (props) => {
-  return (
-    <TouchableHighlight
-      onPress={props.onPress}
-      style={[
-        postStyles.galleryPost,
-        { backgroundColor: props.backgroundColor }
-      ]}
-      underlayColor="#DDDDDD"
-    >
-      <Image
-        style={postStyles.editIcon}
-        source={require("./assets/edit.png")}
-      />
-    </TouchableHighlight>
-  );
+const Post = props => {
+  return <TouchableHighlight onPress={props.onPress} style={[postStyles.galleryPost, styles.LVVUFVnK]} underlayColor="#DDDDDD">
+      <Image style={postStyles.editIcon} source={require("./assets/edit.png")} />
+    </TouchableHighlight>;
 };
 
 const postStyles = StyleSheet.create({
@@ -236,18 +218,12 @@ const postStyles = StyleSheet.create({
   }
 });
 
-const ProfileImage = (props) => {
-  return (
-    <TouchableHighlight onPress={props.onPress} underlayColor="#DDDDDD">
+const ProfileImage = props => {
+  return <TouchableHighlight onPress={props.onPress} underlayColor="#DDDDDD">
       <View style={imageStyles.container}>
-        <Image
-          style={imageStyles.image}
-          resizeMode="contain"
-          source={require("./assets/edit.png")}
-        />
+        <Image style={imageStyles.image} resizeMode="contain" source={require("./assets/edit.png")} />
       </View>
-    </TouchableHighlight>
-  );
+    </TouchableHighlight>;
 };
 
 const imageStyles = StyleSheet.create({
@@ -264,5 +240,4 @@ const imageStyles = StyleSheet.create({
     marginTop: 4
   }
 });
-
 export default SocialProfile;

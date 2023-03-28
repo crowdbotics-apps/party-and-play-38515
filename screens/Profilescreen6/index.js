@@ -1,21 +1,12 @@
 import React from "react";
-import {
-  ScrollView,
-  Text,
-  View,
-  StyleSheet,
-  TouchableHighlight,
-  Image,
-  TextInput
-} from "react-native";
+import { ScrollView, Text, View, StyleSheet, TouchableHighlight, Image, TextInput } from "react-native";
 
 const pressed = () => {
   console.log("pressed");
 };
 
 const Profile = () => {
-  return (
-    <ScrollView>
+  return <ScrollView>
       <View style={styles.mainContainer}>
         <View>
           <View style={styles.headerContainer}>
@@ -52,9 +43,9 @@ const Profile = () => {
           </Button>
         </View>
       </View>
-    </ScrollView>
-  );
+    </ScrollView>;
 };
+
 const styles = StyleSheet.create({
   mainContainer: {
     padding: 10,
@@ -108,8 +99,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     fontWeight: "bold"
   },
-  mainBody: {
-    // height: '60%'
+  mainBody: {// height: '60%'
   },
   btnSave: {
     display: "flex",
@@ -118,36 +108,23 @@ const styles = StyleSheet.create({
     width: "80%"
   }
 });
-
 export default Profile;
 
-const Button = (props) => {
-  return (
-    <TouchableHighlight onPress={props.onPress} underlayColor="#DDDDDD">
-      <View
-        style={[
-          btnStyles.button,
-          {
-            backgroundColor: props.backgroundColor
-              ? props.backgroundColor
-              : "#000000",
-            height: props.height ? props.height : 49,
-            borderWidth: props.borderWidth ? props.borderWidth : 0,
-            borderColor: props.borderColor ? props.borderColor : "#000000"
-          }
-        ]}
-      >
-        <Text
-          style={[
-            btnStyles.text,
-            { color: props.color ? props.color : "#ffffff" }
-          ]}
-        >
+const Button = props => {
+  return <TouchableHighlight onPress={props.onPress} underlayColor="#DDDDDD">
+      <View style={[btnStyles.button, {
+      backgroundColor: props.backgroundColor ? props.backgroundColor : "#000000",
+      height: props.height ? props.height : 49,
+      borderWidth: props.borderWidth ? props.borderWidth : 0,
+      borderColor: props.borderColor ? props.borderColor : "#000000"
+    }]}>
+        <Text style={[btnStyles.text, {
+        color: props.color ? props.color : "#ffffff"
+      }]}>
           {props.children}
         </Text>
       </View>
-    </TouchableHighlight>
-  );
+    </TouchableHighlight>;
 };
 
 const btnStyles = StyleSheet.create({
@@ -163,19 +140,14 @@ const btnStyles = StyleSheet.create({
   }
 });
 
-const ProfileImage = (props) => {
-  return (
-    <TouchableHighlight onPress={props.onPress} underlayColor="#DDDDDD">
+const ProfileImage = props => {
+  return <TouchableHighlight onPress={props.onPress} underlayColor="#DDDDDD">
       <View style={profileStyles.container}>
-        <Image
-          style={profileStyles.image}
-          resizeMode="contain"
-          source={require("./assets/edit.png")}
-        />
+        <Image style={profileStyles.image} resizeMode="contain" source={require("./assets/edit.png")} />
       </View>
-    </TouchableHighlight>
-  );
+    </TouchableHighlight>;
 };
+
 const profileStyles = StyleSheet.create({
   container: {
     backgroundColor: "#DADADA",
@@ -191,24 +163,11 @@ const profileStyles = StyleSheet.create({
   }
 });
 
-const Input = (props) => {
-  return (
-    <View>
-      <TextInput
-        style={inputStyles.input}
-        placeholder={props.placeholder}
-        value={props.value}
-        onChangeText={(num) => props.setValue(num)}
-        placeholderTextColor="#ddd"
-        editable={props.editable !== false}
-      />
-      {props.errorText
-        ? (
-        <Text style={inputStyles.error}>{props.errorText}</Text>
-          )
-        : null}
-    </View>
-  );
+const Input = props => {
+  return <View>
+      <TextInput style={inputStyles.input} placeholder={props.placeholder} value={props.value} onChangeText={num => props.setValue(num)} placeholderTextColor="#ddd" editable={props.editable !== false} />
+      {props.errorText ? <Text style={inputStyles.error}>{props.errorText}</Text> : null}
+    </View>;
 };
 
 const inputStyles = StyleSheet.create({

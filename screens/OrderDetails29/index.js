@@ -1,37 +1,23 @@
 import React, { useEffect, useState } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Pressable,
-  Image,
-  FlatList,
-  TextInput
-} from "react-native";
+import { Text, View, StyleSheet, Pressable, Image, FlatList, TextInput } from "react-native";
 
 const OrderDetails = () => {
   const [productList, setProductList] = useState([]);
   const [promoCode, setPromoCode] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   useEffect(() => {
-    setProductList([
-      {
-        id: 1,
-        name: "Product name",
-        price: 12.59,
-        discountedPrice: 10,
-        deliveryType: "Free delivery",
-        rating: 4.8,
-        image: require("./assets/productImage.png")
-      }
-    ]);
+    setProductList([{
+      id: 1,
+      name: "Product name",
+      price: 12.59,
+      discountedPrice: 10,
+      deliveryType: "Free delivery",
+      rating: 4.8,
+      image: require("./assets/productImage.png")
+    }]);
   }, []);
-  return (
-    <View style={styles.container}>
-      <FlatList
-        style={styles.list}
-        ListHeaderComponent={() => (
-          <View>
+  return <View style={styles.container}>
+      <FlatList style={styles.list} ListHeaderComponent={() => <View>
             <View style={styles.flexRow}>
               <Text style={styles.fnt16}>Deliver to</Text>
               <Pressable>
@@ -41,15 +27,9 @@ const OrderDetails = () => {
             <View style={styles.separator} />
             <View style={styles.tile}>
               <View style={styles.flexRow}>
-                <Image
-                  source={require("./assets/locationIcon.png")}
-                  style={styles.icon}
-                />
+                <Image source={require("./assets/locationIcon.png")} style={styles.icon} />
                 <Text style={styles.deliveryAddress}>1234 Street, City</Text>
-                <Image
-                  source={require("./assets/searchIcon.png")}
-                  style={styles.icon}
-                />
+                <Image source={require("./assets/searchIcon.png")} style={styles.icon} />
               </View>
             </View>
             <View style={styles.separator} />
@@ -60,12 +40,9 @@ const OrderDetails = () => {
               </View>
             </View>
             <View style={styles.separator} />
-          </View>
-        )}
-        data={productList}
-        keyExtractor={item => item.id.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.productContainer}>
+          </View>} data={productList} keyExtractor={item => item.id.toString()} renderItem={({
+      item
+    }) => <View style={styles.productContainer}>
             <Image source={item.image} style={styles.productImage} />
             <View style={styles.productDetails}>
               <Text style={styles.productName}>{item.name}</Text>
@@ -83,26 +60,11 @@ const OrderDetails = () => {
             <Pressable>
               <Text style={styles.editText}>Edit</Text>
             </Pressable>
-          </View>
-        )}
-        ListFooterComponent={() => (
-          <View style={styles.footer}>
+          </View>} ListFooterComponent={() => <View style={styles.footer}>
             <View style={styles.separator} />
             <View style={styles.tile}>
-              <Input
-                text="Promo code"
-                value={promoCode}
-                onChange={text => setPromoCode(text)}
-                containerStyle={styles.inputContainer}
-              />
-              <Input
-                text="Card number"
-                value={cardNumber}
-                onChange={text => setCardNumber(text)}
-                containerStyle={styles.inputContainer}
-                icon={require("./assets/arrowIcon.png")}
-                placeholder="xxxx-xxxx-xxxx-xxxx"
-              />
+              <Input text="Promo code" value={promoCode} onChange={text => setPromoCode(text)} containerStyle={styles.inputContainer} />
+              <Input text="Card number" value={cardNumber} onChange={text => setCardNumber(text)} containerStyle={styles.inputContainer} icon={require("./assets/arrowIcon.png")} placeholder="xxxx-xxxx-xxxx-xxxx" />
               <View style={styles.detailsContainer}>
                 <View style={styles.flexRow}>
                   <Text style={styles.subText}>Promo code</Text>
@@ -123,12 +85,10 @@ const OrderDetails = () => {
               </View>
               <Button buttonText="Place order" style={styles.button} />
             </View>
-          </View>
-        )}
-      />
-    </View>
-  );
+          </View>} />
+    </View>;
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -246,53 +206,17 @@ const styles = StyleSheet.create({
     flex: 1
   }
 });
-
 export default OrderDetails;
 
 const Input = props => {
-  return (
-    <View style={[inputStyles.inputContainer, props.containerStyle]}>
-      {props.text
-        ? (
-        <Text style={inputStyles.inputText}>{props.text}</Text>
-          )
-        : null}
+  return <View style={[inputStyles.inputContainer, props.containerStyle]}>
+      {props.text ? <Text style={inputStyles.inputText}>{props.text}</Text> : null}
 
-      <TextInput
-        style={[
-          inputStyles.input,
-          props.style,
-          props.textArea ? inputStyles.textArea : null
-        ]}
-        placeholder={props.placeholder ? props.placeholder : "Enter"}
-        value={props.value}
-        onChangeText={props.onChange()}
-        placeholderTextColor={
-          props.placeholderTextColor ? props.placeholderTextColor : "#9B9B9B"
-        }
-        editable={props.editable !== false}
-        autoCapitalize="none"
-        autoCorrect={false}
-        multiline={!!props.textArea}
-      />
-      {props.errorText
-        ? (
-        <Text style={inputStyles.error}>{props.errorText}</Text>
-          )
-        : null}
-      {props.icon
-        ? (
-        <Image
-          source={props.icon}
-          style={
-            props.text ? inputStyles.iconWithText : inputStyles.iconWithoutText
-          }
-        />
-          )
-        : null}
+      <TextInput style={[inputStyles.input, props.style, props.textArea ? inputStyles.textArea : null]} placeholder={props.placeholder ? props.placeholder : "Enter"} value={props.value} onChangeText={props.onChange()} placeholderTextColor={props.placeholderTextColor ? props.placeholderTextColor : "#9B9B9B"} editable={props.editable !== false} autoCapitalize="none" autoCorrect={false} multiline={!!props.textArea} />
+      {props.errorText ? <Text style={inputStyles.error}>{props.errorText}</Text> : null}
+      {props.icon ? <Image source={props.icon} style={props.text ? inputStyles.iconWithText : inputStyles.iconWithoutText} /> : null}
       <View style={styles.children}>{props.children}</View>
-    </View>
-  );
+    </View>;
 };
 
 const inputStyles = StyleSheet.create({
@@ -337,6 +261,7 @@ const inputStyles = StyleSheet.create({
   },
   children: {}
 });
+
 const Button = params => {
   const backgroundColor = params.color || "#000";
   const textColor = params.textColor || "#fff";
@@ -348,20 +273,16 @@ const Button = params => {
   const btnText = {
     color: textColor
   };
-  return (
-    <View style={[buttonStyles.btnContainer, params.style]}>
+  return <View style={[buttonStyles.btnContainer, params.style]}>
       <View style={!params.hideShadow ? buttonStyles.shadowContainer : null}>
-        <Pressable
-          style={[buttonStyles.btn, btnStyle]}
-          onPress={params.onPress}>
+        <Pressable style={[buttonStyles.btn, btnStyle]} onPress={params.onPress}>
           <Text style={[buttonStyles.btnText, btnText]}>
             {params.buttonText}
           </Text>
           <View style={styles.childrenContainer}>{params.children}</View>
         </Pressable>
       </View>
-    </View>
-  );
+    </View>;
 };
 
 const buttonStyles = StyleSheet.create({
@@ -381,7 +302,6 @@ const buttonStyles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-
     flexDirection: "row"
   },
   btnText: {
