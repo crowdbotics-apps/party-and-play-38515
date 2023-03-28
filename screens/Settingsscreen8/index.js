@@ -5,7 +5,9 @@ import { Text, View, Image, StyleSheet } from "react-native";
 
 const Settings = () => {
   const navigation = useNavigation();
-  return <View style={styles.container}>
+  return <Pressable onPress={() => {
+    navigation.navigate("SupportSendFeedbackScreen10");
+  }}><View style={styles.container}>
 
       <View style={styles.mainSection}>
         <View style={styles.faqSupport}>
@@ -17,8 +19,8 @@ const Settings = () => {
           <Text style={styles.emailsupportText}>Email Support</Text>
         </View>
         <Pressable onPress={() => {
-        navigation.navigate("InviteFriendsScreen9");
-      }}><View style={styles.invitefriendsSupport}>
+          navigation.navigate("InviteFriendsScreen9");
+        }}><View style={styles.invitefriendsSupport}>
           <Image style={styles.inviteFriendsIcon} source={require("./assets/invitefriends.png")} />
           <Text style={styles.inviteFriendsText}>Invite Friends</Text>
         </View></Pressable>
@@ -46,8 +48,9 @@ const Settings = () => {
         </View>
       </View>
     <Pressable onPress={() => {
-      navigation.navigate("BlankScreen17799");
-    }}><Text style={styles.SqIwcAjE}>Change password</Text></Pressable></View>;
+        navigation.navigate("BlankScreen17799");
+      }}><Text style={styles.SqIwcAjE}>Change password</Text></Pressable><Text style={styles.ornBqVgt}>Logout
+    </Text></View><Text style={styles.tdbXmSfQ}>Feedback</Text></Pressable>;
 };
 
 const styles = StyleSheet.create({
@@ -170,6 +173,20 @@ const styles = StyleSheet.create({
     borderRadius: 10
   },
   SqIwcAjE: {
+    width: 100,
+    height: 50,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0
+  },
+  ornBqVgt: {
+    width: 100,
+    height: 50,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0
+  },
+  tdbXmSfQ: {
     width: 100,
     height: 50,
     lineHeight: 14,
