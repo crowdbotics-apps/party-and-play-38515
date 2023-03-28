@@ -16,10 +16,12 @@ const BlankScreen17798 = () => {
       navigation.navigate("MapLiveTrackingScreen18");
     }}><Text style={_styles.byoCoQtV}>Map 
 
-    </Text></Pressable><Text style={_styles.CZvFnBmU}>Messages 
+    </Text></Pressable><Pressable onPress={() => {
+      navigation.navigate("MessagesListingScreen16");
+    }}><Text style={_styles.CZvFnBmU}>Messages 
 
 
-    </Text><Text style={_styles.IcrWNjDD}>Notifications 
+    </Text></Pressable><Text style={_styles.IcrWNjDD}>Notifications 
 
 
     </Text><Text style={_styles.kZQuwfor}>Settings 
