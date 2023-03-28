@@ -17,7 +17,7 @@ const OrderDetails = () => {
     }]);
   }, []);
   return <View style={styles.container}>
-      <FlatList style={styles.list} ListHeaderComponent={() => <View>
+      <FlatList style={styles.list} ListHeaderComponent={() => <Pressable onPress={{}}><View>
             <View style={styles.flexRow}>
               <Text style={styles.fnt16}>Deliver to</Text>
               <Pressable>
@@ -40,7 +40,7 @@ const OrderDetails = () => {
               </View>
             </View>
             <View style={styles.separator} />
-          </View>} data={productList} keyExtractor={item => item.id.toString()} renderItem={({
+          </View></Pressable>} data={productList} keyExtractor={item => item.id.toString()} renderItem={({
       item
     }) => <View style={styles.productContainer}>
             <Image source={item.image} style={styles.productImage} />

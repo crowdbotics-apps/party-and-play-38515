@@ -1,9 +1,14 @@
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import React from "react";
 import { Text, StyleSheet, View } from "react-native";
 
-const BookAppointmentScreen = params => {
+const BookAppointmentScreen = () => {
+  const navigation = useNavigation();
   return <View style={styles.container}>
-      <Text style={styles.headingTxt}>Book Appointment Screen</Text>
+      <Pressable onPress={() => {
+      navigation.navigate("OrderDetails29");
+    }}><Text style={styles.headingTxt}>Book Appointment Screen</Text></Pressable>
     </View>;
 };
 
