@@ -1,7 +1,9 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet, ScrollView, Image, Pressable } from "react-native";
 
 const EventDetails = () => {
+  const navigation = useNavigation();
   const [event, setEvent] = useState({});
   useEffect(() => {
     setEvent({
@@ -17,7 +19,9 @@ const EventDetails = () => {
       <ScrollView>
         <Image source={require("./assets/image.png")} style={styles.image} />
         <Image style={styles.scroller} source={require("./assets/Slider.png")} />
-        <View style={styles.body}>
+        <Pressable onPress={() => {
+        navigation.navigate("BookAppointmentScreen13");
+      }}><View style={styles.body}>
           <View style={styles.header}>
             <View style={styles.details}>
               <Text style={styles.name}>{event.name}</Text>
@@ -55,7 +59,7 @@ const EventDetails = () => {
           </View>
           <Text style={styles.heading}>Event info</Text>
           <Text style={styles.description}>{event.info}</Text>
-        </View>
+        </View></Pressable>
         <View style={styles.button}>
           <Button buttonText={"Book Event"} />
         </View>
