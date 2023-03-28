@@ -9,7 +9,19 @@ const BlankScreen17798 = () => {
   return <View style={_styles.BlankScreen17798}>
       <Pressable onPress={() => {
       navigation.navigate("login");
-    }}><Text style={_styles.KbnasoWT}>Login </Text></Pressable><Text style={_styles.rSJJAwqH}>Lorem ipsum…</Text><Text style={_styles.byoCoQtV}>Lorem ipsum…</Text><Text style={_styles.CZvFnBmU}>Lorem ipsum…</Text></View>;
+    }}><Text style={_styles.KbnasoWT}>Login </Text></Pressable><Text style={_styles.rSJJAwqH}>Sign up 
+    </Text><Text style={_styles.byoCoQtV}>Map 
+
+    </Text><Text style={_styles.CZvFnBmU}>Messages 
+
+
+    </Text><Text style={_styles.IcrWNjDD}>Notifications 
+
+
+    </Text><Text style={_styles.kZQuwfor}>Settings 
+
+
+    </Text></View>;
 };
 
 export default BlankScreen17798;
@@ -44,6 +56,20 @@ const _styles = StyleSheet.create({
     borderRadius: 0
   },
   CZvFnBmU: {
+    width: 100,
+    height: 50,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0
+  },
+  IcrWNjDD: {
+    width: 100,
+    height: 50,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0
+  },
+  kZQuwfor: {
     width: 100,
     height: 50,
     lineHeight: 14,
