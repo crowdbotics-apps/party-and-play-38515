@@ -1,14 +1,20 @@
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import React from "react";
 import { Text, StyleSheet, View, Image, ScrollView, TouchableHighlight } from "react-native";
 
 const SocialProfile = () => {
+  const navigation = useNavigation();
+
   const pressed = () => {
     console.log("pressed");
   };
 
   return <ScrollView>
       <View style={styles.container}>
-        <View style={styles.head}>
+        <Pressable onPress={() => {
+        navigation.navigate("EventDetails12");
+      }}><View style={styles.head}>
           <View style={styles.headerContainer}>
             <ProfileImage />
             <Text style={styles.headerText}>Username</Text>
@@ -36,7 +42,7 @@ const SocialProfile = () => {
             <Image source={require("./assets/img.png")} style={styles.img} />
             <Image source={require("./assets/video.png")} style={styles.img} />
           </View>
-        </View>
+        </View></Pressable>
 
         <View style={styles.pt30}>
           <View style={styles.galleryRow}>
