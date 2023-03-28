@@ -9,10 +9,14 @@ const BlankScreen17798 = () => {
   return <View style={_styles.BlankScreen17798}>
       <Pressable onPress={() => {
       navigation.navigate("login");
-    }}><Text style={_styles.KbnasoWT}>Login </Text></Pressable><Text style={_styles.rSJJAwqH}>Sign up 
-    </Text><Text style={_styles.byoCoQtV}>Map 
+    }}><Text style={_styles.KbnasoWT}>Login </Text></Pressable><Pressable onPress={() => {
+      navigation.navigate("login");
+    }}><Text style={_styles.rSJJAwqH}>Sign up 
+    </Text></Pressable><Pressable onPress={() => {
+      navigation.navigate("MapLiveTrackingScreen18");
+    }}><Text style={_styles.byoCoQtV}>Map 
 
-    </Text><Text style={_styles.CZvFnBmU}>Messages 
+    </Text></Pressable><Text style={_styles.CZvFnBmU}>Messages 
 
 
     </Text><Text style={_styles.IcrWNjDD}>Notifications 
