@@ -26,10 +26,12 @@ const BlankScreen17798 = () => {
     }}><Text style={_styles.IcrWNjDD}>Notifications 
 
 
-    </Text></Pressable><Text style={_styles.kZQuwfor}>Settings 
+    </Text></Pressable><Pressable onPress={() => {
+      navigation.navigate("Settingsscreen8");
+    }}><Text style={_styles.kZQuwfor}>Settings 
 
 
-    </Text></View>;
+    </Text></Pressable></View>;
 };
 
 export default BlankScreen17798;
