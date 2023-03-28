@@ -49,8 +49,10 @@ const Settings = () => {
       </View>
     <Pressable onPress={() => {
         navigation.navigate("BlankScreen17799");
-      }}><Text style={styles.SqIwcAjE}>Change password</Text></Pressable><Text style={styles.ornBqVgt}>Logout
-    </Text></View><Text style={styles.tdbXmSfQ}>Feedback</Text></Pressable>;
+      }}><Text style={styles.SqIwcAjE}>Change password</Text></Pressable><Pressable onPress={() => {
+        navigation.navigate("BlankScreen17800");
+      }}><Text style={styles.ornBqVgt}>Logout
+    </Text></Pressable></View><Text style={styles.tdbXmSfQ}>Feedback</Text></Pressable>;
 };
 
 const styles = StyleSheet.create({
