@@ -1,7 +1,10 @@
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import React, { useState, useEffect } from "react";
 import { Text, StyleSheet, View, Image } from "react-native";
 
-const MapLiveTrackingScreen = params => {
+const MapLiveTrackingScreen = () => {
+  const navigation = useNavigation();
   const [order, setOrder] = useState({});
   useEffect(() => {
     setOrder({
@@ -14,7 +17,9 @@ const MapLiveTrackingScreen = params => {
     });
   }, []);
   return <View style={styles.container}>
-      <View style={styles.orderContainer}>
+      <Pressable onPress={() => {
+      navigation.navigate("Maps");
+    }}><View style={styles.orderContainer}>
         <Text style={styles.bold}>Order details</Text>
         <View style={styles.shippingDetails}>
           <Text style={styles.grey}>{order.shipping}</Text>
@@ -53,7 +58,7 @@ const MapLiveTrackingScreen = params => {
             </View>
           </View>
         </View>
-      </View>
+      </View></Pressable>
       <Image source={require("./assets/map.png")} style={styles.mapImage} />
     </View>;
 };
