@@ -21,10 +21,10 @@ const BlankScreen17798 = () => {
     }}><Text style={_styles.CZvFnBmU}>Messages 
 
 
-    </Text></Pressable><Text style={_styles.IcrWNjDD}>Notifications 
+    </Text></Pressable><Pressable onPress={{}}><Text style={_styles.IcrWNjDD}>Notifications 
 
 
-    </Text><Text style={_styles.kZQuwfor}>Settings 
+    </Text></Pressable><Text style={_styles.kZQuwfor}>Settings 
 
 
     </Text></View>;
