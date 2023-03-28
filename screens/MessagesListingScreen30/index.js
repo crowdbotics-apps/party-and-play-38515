@@ -1,7 +1,9 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
 import { Text, StyleSheet, View, TextInput, FlatList, Image, Pressable } from "react-native";
 
-const RateTheAppScreen = params => {
+const RateTheAppScreen = () => {
+  const navigation = useNavigation();
   const [username, setUsername] = useState("");
   const [messages, setMessages] = useState([]);
   useEffect(() => {
@@ -76,7 +78,9 @@ const RateTheAppScreen = params => {
       item
     }) => <ChatListingItem message={item} />} />
       <View style={styles.newBtn}>
-        <Pressable>
+        <Pressable onPress={() => {
+        navigation.navigate("DirectMessagesScreen31");
+      }}>
           <Image source={require("./assets/plusIcon.png")} />
         </Pressable>
       </View>
