@@ -13,6 +13,7 @@ const _styles = StyleSheet.create({
     backgroundColor: "#f0f0f1",
     padding: 10,
     position: "relative",
-    height: "100%"
+    height: "100%",
+    borderRadius: 5
   }
 });
