@@ -1,7 +1,10 @@
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import React, { useState, useEffect } from "react";
 import { Text, StyleSheet, View, Image, ScrollView, TextInput } from "react-native";
 
-const DirectMessagesScreen = params => {
+const DirectMessagesScreen = () => {
+  const navigation = useNavigation();
   const [message, setMessage] = useState("");
   const [user1, setUser1] = useState({});
   const [user2, setUser2] = useState({});
@@ -52,7 +55,9 @@ const DirectMessagesScreen = params => {
     }]);
   }, [user1, user2]);
   return <View style={styles.container}>
-      <View style={styles.header}>
+      <Pressable onPress={() => {
+      navigation.navigate("Chat");
+    }}><View style={styles.header}>
         <View style={styles.headerImage}>
           <Image source={user2.image} style={styles.headerImage} />
           {user2.isOnline && <Image source={require("./assets/onlineIcon.png")} style={styles.activityIconHeader} /> || null}
@@ -64,7 +69,7 @@ const DirectMessagesScreen = params => {
           <Image source={require("./assets/phoneIcon.png")} />
           <Image source={require("./assets/videoIcon.png")} />
         </View>
-      </View>
+      </View></Pressable>
       <ScrollView style={styles.body}>
         {conversation.map((message, index) => <ConversationElement message={message} key={index} />)}
       </ScrollView>
