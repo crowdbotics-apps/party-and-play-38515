@@ -21,7 +21,9 @@ const BlankScreen17798 = () => {
     }}><Text style={_styles.CZvFnBmU}>Messages 
 
 
-    </Text></Pressable><Pressable onPress={{}}><Text style={_styles.IcrWNjDD}>Notifications 
+    </Text></Pressable><Pressable onPress={() => {
+      navigation.navigate("notificationListWithPreference");
+    }}><Text style={_styles.IcrWNjDD}>Notifications 
 
 
     </Text></Pressable><Text style={_styles.kZQuwfor}>Settings 
