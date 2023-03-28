@@ -59,7 +59,9 @@ const MapLiveTrackingScreen = () => {
           </View>
         </View>
       </View></Pressable>
-      <Image source={require("./assets/map.png")} style={styles.mapImage} />
+      <Pressable onPress={() => {
+      navigation.navigate("MapLiveTrackingScreen28");
+    }}><Image source={require("./assets/map.png")} style={styles.mapImage} /></Pressable>
     </View>;
 };
 
