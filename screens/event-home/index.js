@@ -61,7 +61,7 @@ const EventHome = () => {
     });
   }, []);
   return <View style={styles.container}>
-      <FlatList style={styles.list} ListHeaderComponent={() => <View>
+      <FlatList style={styles.list} ListHeaderComponent={() => <Pressable onPress={{}}><View>
             <Text style={styles.greetingText}>Good Morning,</Text>
             <Text style={styles.username}>{user.name}</Text>
             <Input text="Search" value={search} onChange={text => setSearch(text)} containerStyle={styles.inputContainer} />
@@ -70,10 +70,10 @@ const EventHome = () => {
               <Text style={styles.headerSubText}>View All</Text>
             </View>
             <FlatList data={upcomingEvents} renderItem={({
-        item
-      }) => <UpcomingEvent event={item} />} keyExtractor={item => item.id.toString()} horizontal={true} showsHorizontalScrollIndicator={false} />
+          item
+        }) => <UpcomingEvent event={item} />} keyExtractor={item => item.id.toString()} horizontal={true} showsHorizontalScrollIndicator={false} />
             <TabView tabTitles={["Event", "Event", "Event", "Event"]} selected={selectedTab} onPress={index => setSelectedTab(index)} style={styles.tabView} />
-          </View>} data={events} renderItem={({
+          </View></Pressable>} data={events} renderItem={({
       item
     }) => <Event event={item} />} keyExtractor={item => item.id} showsVerticalScrollIndicator={false} />
       <Footer images={[require("./assets/homeIconActive.png"), require("./assets/starIcon.png"), require("./assets/taskIcon.png"), require("./assets/mapIcon.png")]} titles={["Home", "Sponsors", "Tasks", "Map"]} active={0} activeColor="#7C7C7C" />
