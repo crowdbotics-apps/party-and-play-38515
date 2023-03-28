@@ -9,7 +9,7 @@ const BlankScreen17798 = () => {
   return <View style={_styles.BlankScreen17798}>
       <Pressable onPress={() => {
       navigation.navigate("login");
-    }}><Text style={_styles.KbnasoWT}>Login </Text></Pressable></View>;
+    }}><Text style={_styles.KbnasoWT}>Login </Text></Pressable><Text style={_styles.rSJJAwqH}>Lorem ipsum…</Text><Text style={_styles.byoCoQtV}>Lorem ipsum…</Text><Text style={_styles.CZvFnBmU}>Lorem ipsum…</Text></View>;
 };
 
 export default BlankScreen17798;
@@ -23,6 +23,27 @@ const _styles = StyleSheet.create({
     borderRadius: 5
   },
   KbnasoWT: {
+    width: 100,
+    height: 50,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0
+  },
+  rSJJAwqH: {
+    width: 100,
+    height: 50,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0
+  },
+  byoCoQtV: {
+    width: 100,
+    height: 50,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0
+  },
+  CZvFnBmU: {
     width: 100,
     height: 50,
     lineHeight: 14,
