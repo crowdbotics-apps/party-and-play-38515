@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Event,Service,Vendor
-from .serializers import EventSerializer,ServiceSerializer,VendorSerializer
+from home.models import Booking,Event,Notification,Payment,Service,Vendor
+from .serializers import BookingSerializer,EventSerializer,NotificationSerializer,PaymentSerializer,ServiceSerializer,VendorSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -47,3 +47,18 @@ class ServiceViewSet(viewsets.ModelViewSet):
     serializer_class = ServiceSerializer
     authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
     queryset = Service.objects.all()
+
+class PaymentViewSet(viewsets.ModelViewSet):
+    serializer_class = PaymentSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Payment.objects.all()
+
+class BookingViewSet(viewsets.ModelViewSet):
+    serializer_class = BookingSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Booking.objects.all()
+
+class NotificationViewSet(viewsets.ModelViewSet):
+    serializer_class = NotificationSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Notification.objects.all()
