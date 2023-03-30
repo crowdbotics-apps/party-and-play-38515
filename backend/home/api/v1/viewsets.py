@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Event,Vendor
-from .serializers import EventSerializer,VendorSerializer
+from home.models import Event,Service,Vendor
+from .serializers import EventSerializer,ServiceSerializer,VendorSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -42,3 +42,8 @@ class VendorViewSet(viewsets.ModelViewSet):
     serializer_class = VendorSerializer
     authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
     queryset = Vendor.objects.all()
+
+class ServiceViewSet(viewsets.ModelViewSet):
+    serializer_class = ServiceSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Service.objects.all()
