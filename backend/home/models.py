@@ -18,3 +18,6 @@ class Booking(models.Model):
 class Notification(models.Model):
     'Generated Model'
     notification_id = models.IntegerField()
+class Customer(models.Model):
+    'Generated Model'
+    customer_id = models.IntegerField()

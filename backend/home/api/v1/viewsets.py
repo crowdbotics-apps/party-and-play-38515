@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Booking,Event,Notification,Payment,Service,Vendor
-from .serializers import BookingSerializer,EventSerializer,NotificationSerializer,PaymentSerializer,ServiceSerializer,VendorSerializer
+from home.models import Booking,Customer,Event,Notification,Payment,Service,Vendor
+from .serializers import BookingSerializer,CustomerSerializer,EventSerializer,NotificationSerializer,PaymentSerializer,ServiceSerializer,VendorSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -62,3 +62,8 @@ class NotificationViewSet(viewsets.ModelViewSet):
     serializer_class = NotificationSerializer
     authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
     queryset = Notification.objects.all()
+
+class CustomerViewSet(viewsets.ModelViewSet):
+    serializer_class = CustomerSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Customer.objects.all()
