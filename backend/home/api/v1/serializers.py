@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from home.models import Booking,Customer,Event,Notification,Payment,Service,Vendor
+from home.models import Booking,Customer,Event,Notification,Payment,Service,Settings,Vendor
 from django.http import HttpRequest
 from django.utils.translation import ugettext_lazy as _
 from allauth.account import app_settings as allauth_settings
@@ -116,4 +116,10 @@ class CustomerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Customer
+        fields = "__all__"
+
+class SettingsSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Settings
         fields = "__all__"
