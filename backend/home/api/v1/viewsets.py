@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Account_Settings,Bank_Account,Booking,Budget,Customer,Event,Notification,Payment,Reviews,Service,Service_Type,Settings,Vendor
-from .serializers import Account_SettingsSerializer,Bank_AccountSerializer,BookingSerializer,BudgetSerializer,CustomerSerializer,EventSerializer,NotificationSerializer,PaymentSerializer,ReviewsSerializer,ServiceSerializer,Service_TypeSerializer,SettingsSerializer,VendorSerializer
+from home.models import Account_Settings,Bank_Account,Booking,Budget,Customer,Event,Notification,Payment,Reviews,Service,Service_Type,Settings,User_Role,Vendor
+from .serializers import Account_SettingsSerializer,Bank_AccountSerializer,BookingSerializer,BudgetSerializer,CustomerSerializer,EventSerializer,NotificationSerializer,PaymentSerializer,ReviewsSerializer,ServiceSerializer,Service_TypeSerializer,SettingsSerializer,User_RoleSerializer,VendorSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -97,3 +97,8 @@ class Bank_AccountViewSet(viewsets.ModelViewSet):
     serializer_class = Bank_AccountSerializer
     authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
     queryset = Bank_Account.objects.all()
+
+class User_RoleViewSet(viewsets.ModelViewSet):
+    serializer_class = User_RoleSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = User_Role.objects.all()

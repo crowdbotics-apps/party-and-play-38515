@@ -47,3 +47,6 @@ class Bank_Account(models.Model):
     routing_no = models.IntegerField()
     iban = models.TextField()
     swift_code = models.TextField()
+class User_Role(models.Model):
+    'Generated Model'
+    role_name = models.TextField()
