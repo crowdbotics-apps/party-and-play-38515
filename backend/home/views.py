@@ -1,3 +1,5 @@
+from .models import Booking, Customer, Event, Notification, Payment, Service, Settings, Vendor
+from django.views.generic import CreateView, UpdateView, DetailView, ListView
 from django.shortcuts import render
 
 

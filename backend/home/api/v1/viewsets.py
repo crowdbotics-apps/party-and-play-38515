@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Booking,Customer,Event,Notification,Payment,Service,Settings,Vendor
-from .serializers import BookingSerializer,CustomerSerializer,EventSerializer,NotificationSerializer,PaymentSerializer,ServiceSerializer,SettingsSerializer,VendorSerializer
+from home.models import Account_Settings,Bank_Account,Booking,Budget,Customer,Event,Notification,Payment,Reviews,Service,Service_Type,Settings,Vendor
+from .serializers import Account_SettingsSerializer,Bank_AccountSerializer,BookingSerializer,BudgetSerializer,CustomerSerializer,EventSerializer,NotificationSerializer,PaymentSerializer,ReviewsSerializer,ServiceSerializer,Service_TypeSerializer,SettingsSerializer,VendorSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -72,3 +72,28 @@ class SettingsViewSet(viewsets.ModelViewSet):
     serializer_class = SettingsSerializer
     authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
     queryset = Settings.objects.all()
+
+class Account_SettingsViewSet(viewsets.ModelViewSet):
+    serializer_class = Account_SettingsSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Account_Settings.objects.all()
+
+class BudgetViewSet(viewsets.ModelViewSet):
+    serializer_class = BudgetSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Budget.objects.all()
+
+class Service_TypeViewSet(viewsets.ModelViewSet):
+    serializer_class = Service_TypeSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Service_Type.objects.all()
+
+class ReviewsViewSet(viewsets.ModelViewSet):
+    serializer_class = ReviewsSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Reviews.objects.all()
+
+class Bank_AccountViewSet(viewsets.ModelViewSet):
+    serializer_class = Bank_AccountSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Bank_Account.objects.all()

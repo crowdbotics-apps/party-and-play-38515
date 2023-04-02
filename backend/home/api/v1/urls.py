@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .viewsets import BookingViewSet,CustomerViewSet,EventViewSet,NotificationViewSet,PaymentViewSet,ServiceViewSet,SettingsViewSet,VendorViewSet
+from .viewsets import Account_SettingsViewSet,Bank_AccountViewSet,BookingViewSet,BudgetViewSet,CustomerViewSet,EventViewSet,NotificationViewSet,PaymentViewSet,ReviewsViewSet,ServiceViewSet,Service_TypeViewSet,SettingsViewSet,VendorViewSet
 
 from home.api.v1.viewsets import (
     SignupViewSet,
@@ -18,6 +18,11 @@ router.register('booking', BookingViewSet )
 router.register('notification', NotificationViewSet )
 router.register('customer', CustomerViewSet )
 router.register('settings', SettingsViewSet )
+router.register('account_settings', Account_SettingsViewSet )
+router.register('budget', BudgetViewSet )
+router.register('service_type', Service_TypeViewSet )
+router.register('reviews', ReviewsViewSet )
+router.register('bank_account', Bank_AccountViewSet )
 
 urlpatterns = [
     path("", include(router.urls)),
