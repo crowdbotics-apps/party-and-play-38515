@@ -1,4 +1,4 @@
-from .models import Customer, Payment, Reviews, Notification, Service_Type, Account_Settings, Settings, Service, User_Role, Bank_Account, Vendor, Event, Budget
+from .models import Reviews, Notification, Budget, Payment, Bank_Account, Account_Settings, Service, User_Role, Customer, Event, Service_Type, Vendor
 from django.views.generic import CreateView, UpdateView, DetailView, ListView
 from django.shortcuts import render
 

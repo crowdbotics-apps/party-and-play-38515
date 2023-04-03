@@ -18,9 +18,6 @@ class Notification(models.Model):
 class Customer(models.Model):
     'Generated Model'
     customer_id = models.IntegerField()
-class Settings(models.Model):
-    'Generated Model'
-    settings_id = models.IntegerField()
 class Account_Settings(models.Model):
     'Generated Model'
     isactive = models.BooleanField()
