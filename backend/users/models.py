@@ -26,5 +26,6 @@ class User(AbstractUser):
     review_id = models.ForeignKey("home.Reviews",null=True,blank=True,on_delete=models.CASCADE,related_name="user_review_id",)
     notification_id = models.ManyToManyField("home.Notification",blank=True,related_name="user_notification_id",)
     account_id = models.ManyToManyField("home.Bank_Account",blank=True,related_name="user_account_id",)
+    setting_id = models.ForeignKey("home.Settings",on_delete=models.CASCADE,null=True,blank=True,related_name="user_setting_id",)
     def get_absolute_url(self):
         return reverse('users:detail', kwargs={'username': self.username})

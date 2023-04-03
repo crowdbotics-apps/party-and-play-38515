@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Account_Settings,Bank_Account,Budget,Customer,Event,Notification,Payment,Reviews,Service,Service_Type,User_Role,Vendor
-from .serializers import Account_SettingsSerializer,Bank_AccountSerializer,BudgetSerializer,CustomerSerializer,EventSerializer,NotificationSerializer,PaymentSerializer,ReviewsSerializer,ServiceSerializer,Service_TypeSerializer,User_RoleSerializer,VendorSerializer
+from home.models import Bank_Account,Budget,Customer,Event,Notification,Payment,Reviews,Service,Service_Type,Settings,User_Role,Vendor
+from .serializers import Bank_AccountSerializer,BudgetSerializer,CustomerSerializer,EventSerializer,NotificationSerializer,PaymentSerializer,ReviewsSerializer,ServiceSerializer,Service_TypeSerializer,SettingsSerializer,User_RoleSerializer,VendorSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -63,11 +63,6 @@ class CustomerViewSet(viewsets.ModelViewSet):
     authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
     queryset = Customer.objects.all()
 
-class Account_SettingsViewSet(viewsets.ModelViewSet):
-    serializer_class = Account_SettingsSerializer
-    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
-    queryset = Account_Settings.objects.all()
-
 class BudgetViewSet(viewsets.ModelViewSet):
     serializer_class = BudgetSerializer
     authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
@@ -92,3 +87,8 @@ class User_RoleViewSet(viewsets.ModelViewSet):
     serializer_class = User_RoleSerializer
     authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
     queryset = User_Role.objects.all()
+
+class SettingsViewSet(viewsets.ModelViewSet):
+    serializer_class = SettingsSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Settings.objects.all()

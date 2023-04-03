@@ -18,9 +18,6 @@ class Notification(models.Model):
 class Customer(models.Model):
     'Generated Model'
     customer_id = models.IntegerField()
-class Account_Settings(models.Model):
-    'Generated Model'
-    isactive = models.BooleanField()
 class Budget(models.Model):
     'Generated Model'
     amount = models.FloatField()
@@ -44,3 +41,7 @@ class Bank_Account(models.Model):
 class User_Role(models.Model):
     'Generated Model'
     role_name = models.TextField()
+class Settings(models.Model):
+    'Generated Model'
+    title = models.TextField()
+    isactive = models.BooleanField()
