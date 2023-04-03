@@ -19,11 +19,11 @@ class User(AbstractUser):
     everything that relates with an `User` is represented by this model.
     """
     name = models.CharField(null=True,blank=True,max_length=255,)
-    email = models.EmailField(max_length=254,null=True,blank=True,)
+    email = models.EmailField(null=True,blank=True,max_length=254,)
     mobile = models.IntegerField(null=True,blank=True,)
-    role_id = models.ForeignKey("home.User_Role",on_delete=models.CASCADE,null=True,blank=True,related_name="user_role_id",)
-    customer_id = models.OneToOneField("home.Customer",on_delete=models.CASCADE,null=True,blank=True,related_name="user_customer_id",)
-    review_id = models.ForeignKey("home.Reviews",on_delete=models.CASCADE,null=True,blank=True,related_name="user_review_id",)
+    role_id = models.ForeignKey("home.User_Role",null=True,blank=True,on_delete=models.CASCADE,related_name="user_role_id",)
+    customer_id = models.OneToOneField("home.Customer",null=True,blank=True,on_delete=models.CASCADE,related_name="user_customer_id",)
+    review_id = models.ForeignKey("home.Reviews",null=True,blank=True,on_delete=models.CASCADE,related_name="user_review_id",)
     notification_id = models.ManyToManyField("home.Notification",blank=True,related_name="user_notification_id",)
     account_id = models.ManyToManyField("home.Bank_Account",blank=True,related_name="user_account_id",)
     def get_absolute_url(self):

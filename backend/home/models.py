@@ -12,9 +12,6 @@ class Service(models.Model):
 class Payment(models.Model):
     'Generated Model'
     payment_id = models.IntegerField()
-class Booking(models.Model):
-    'Generated Model'
-    booking_id = models.IntegerField()
 class Notification(models.Model):
     'Generated Model'
     notification_id = models.IntegerField()

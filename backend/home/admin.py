@@ -1,10 +1,9 @@
 from django.contrib import admin
-from .models import Account_Settings,Bank_Account,Booking,Budget,Customer,Event,Notification,Payment,Reviews,Service,Service_Type,Settings,User_Role,Vendor
+from .models import Account_Settings,Bank_Account,Budget,Customer,Event,Notification,Payment,Reviews,Service,Service_Type,Settings,User_Role,Vendor
 admin.site.register(Event)
 admin.site.register(Vendor)
 admin.site.register(Service)
 admin.site.register(Payment)
-admin.site.register(Booking)
 admin.site.register(Notification)
 admin.site.register(Customer)
 admin.site.register(Settings)
